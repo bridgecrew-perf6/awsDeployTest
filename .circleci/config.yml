@@ -27,6 +27,14 @@ jobs:
     machine: true
     steps:
       - run: echo "acceptance tests 6-10"
+    acceptances2:
+    machine: true
+    steps:
+      - run: echo "acceptance tests 6-10"
+    acceptances2:
+    machine: true
+    steps:
+      - run: echo "acceptance tests 6-10"
   deployStaging:
     machine: true
     steps:
