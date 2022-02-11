@@ -1,7 +1,7 @@
 version: 2.1
 
 jobs:
-  sayAllEcho:
+  waitForStagingToBeUp:
     machine: true
     steps:
       - run: echo "Waiting until response from staging..."
@@ -36,7 +36,26 @@ jobs:
     steps:
       - run: echo "notifying client of new version"
 workflows:
-  monWorkflow:
+  build:
     jobs:
-      - sayAllEcho:
-        saywhat: Intégration web
+      - notifyTeamOfNewBuild
+      - checkoutAndTest
+      - deployStaging:
+          requires:
+            - checkoutAndTest
+      - waitForStagingToBeUp:
+          requires:
+            - deployStaging
+      - acceptances1:
+          requires:
+            - waitForStagingToBeUp
+      - acceptances2:
+          requires:
+            - waitForStagingToBeUp
+      - deployProd:
+          requires:
+            - acceptances1
+            - acceptances2
+      - notifyNewVersion:
+          requires:
+            - deployProd
