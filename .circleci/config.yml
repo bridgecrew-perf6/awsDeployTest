@@ -17,13 +17,7 @@ jobs:
     machine: true
     steps:
       - run: echo "acceptance tests 1-5"
-  checkoutAndTest:
-    docker:
-      - image: cimg/node:15.8.0
-    steps:
-      - checkout
-      - run: echo "unit tests"
-  acceptances2:
+   acceptances2:
     machine: true
     steps:
       - run: echo "acceptance tests 6-10"
@@ -31,10 +25,16 @@ jobs:
     machine: true
     steps:
       - run: echo "acceptance tests 6-10"
-  acceptances4:
+   acceptances4:
     machine: true
     steps:
       - run: echo "acceptance tests 6-10"
+  checkoutAndTest:
+    docker:
+      - image: cimg/node:15.8.0
+    steps:
+      - checkout
+      - run: echo "unit tests"
   deployStaging:
     machine: true
     steps:
@@ -57,6 +57,12 @@ workflows:
           requires:
             - waitForStagingToBeUp
       - acceptances2:
+          requires:
+            - waitForStagingToBeUp
+      - acceptances3:
+          requires:
+            - waitForStagingToBeUp
+      - acceptances4:
           requires:
             - waitForStagingToBeUp
       - deployProd:
