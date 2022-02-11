@@ -38,7 +38,6 @@ jobs:
 workflows:
   build:
     jobs:
-      - notifyTeamOfNewBuild
       - checkoutAndTest
       - deployStaging:
           requires:
@@ -54,8 +53,10 @@ workflows:
             - waitForStagingToBeUp
       - deployProd:
           requires:
-            - acceptances1
             - acceptances2
+            - acceptances1
+            - acceptances1
+            - acceptances1
       - notifyNewVersion:
           requires:
             - deployProd
