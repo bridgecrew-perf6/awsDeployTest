@@ -27,7 +27,7 @@ jobs:
     machine: true
     steps:
       - run: echo "acceptance tests 6-10"
-  acceptances4:
+  acceptances3:
     machine: true
     steps:
       - run: echo "acceptance tests 10-15"
