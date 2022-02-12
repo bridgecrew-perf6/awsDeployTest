@@ -39,10 +39,10 @@ jobs:
     machine: true
     steps:
       - run: echo "deploy staging"
-  notifyNewVersion:
-    machine: true
-    steps:
-      - run: echo "notifying client of new version"
+  # notifyNewVersion:
+  #   machine: true
+  #   steps:
+  #     - run: echo "notifying client of new version"
 workflows:
   build:
     jobs:
@@ -67,10 +67,10 @@ workflows:
             - waitForStagingToBeUp
       - deployProd:
           requires:
-            - acceptances1
-            - acceptances2
-            - acceptances3
             - acceptances4
-      - notifyNewVersion:
-          requires:
-            - deployProd
+            - acceptances3
+            - acceptances2
+            - acceptances1
+      # - notifyNewVersion:
+      #     requires:
+      #       - deployProd
