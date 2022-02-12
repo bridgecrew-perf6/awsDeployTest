@@ -67,9 +67,9 @@ workflows:
             - waitForStagingToBeUp
       - deployProd:
           requires:
-            - acceptances3
-            - acceptances2
             - acceptances4
+            - acceptances2
+            - acceptances3
             - acceptances1
       # - notifyNewVersion:
       #     requires:
