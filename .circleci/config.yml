@@ -69,8 +69,8 @@ workflows:
           requires:
             - acceptances4
             - acceptances3
-            - acceptances2
             - acceptances1
+            - acceptances2
       # - notifyNewVersion:
       #     requires:
       #       - deployProd
