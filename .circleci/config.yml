@@ -56,13 +56,13 @@ workflows:
       - acceptances4:
           requires:
             - waitForStagingToBeUp
-      - acceptances2:
+      - acceptances1:
           requires:
             - waitForStagingToBeUp
       - acceptances3:
           requires:
             - waitForStagingToBeUp
-      - acceptances1:
+      - acceptances2:
           requires:
             - waitForStagingToBeUp
       - deployProd:
