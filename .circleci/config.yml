@@ -27,6 +27,14 @@ jobs:
     machine: true
     steps:
       - run: echo "acceptance tests 6-10"
+  acceptances4:
+    machine: true
+    steps:
+      - run: echo "acceptance tests 1-5"
+  acceptances4:
+    machine: true
+    steps:
+      - run: echo "acceptance tests 1-5"
   deployStaging:
     machine: true
     steps:
@@ -51,10 +59,18 @@ workflows:
       - acceptances2:
           requires:
             - waitForStagingToBeUp
+      - acceptances3:
+          requires:
+            - waitForStagingToBeUp
+      - acceptances4:
+          requires:
+            - waitForStagingToBeUp
       - deployProd:
           requires:
             - acceptances1
             - acceptances2
+            - acceptances3
+            - acceptances4
       - notifyNewVersion:
           requires:
             - deployProd
