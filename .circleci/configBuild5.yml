@@ -38,6 +38,7 @@ jobs:
 workflows:
   build:
     jobs:
+      - notifyTeamOfNewBuild
       - checkoutAndTest
       - deployStaging:
           requires:
