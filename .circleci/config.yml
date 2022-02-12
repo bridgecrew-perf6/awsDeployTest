@@ -62,15 +62,15 @@ workflows:
       - acceptances2:
           requires:
             - waitForStagingToBeUp
-      - acceptances1:
+      - acceptances4:
           requires:
             - waitForStagingToBeUp
       - deployProd:
           requires:
-            - acceptances1
+            - acceptances4
             - acceptances2
             - acceptances3
-            - acceptances4
+            - acceptances1
       # - notifyNewVersion:
       #     requires:
       #       - deployProd
