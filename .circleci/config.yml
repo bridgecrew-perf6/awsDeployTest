@@ -13,7 +13,7 @@ jobs:
     machine: true
     steps:
       - run: echo "notifying team of new build pipeline"
-  acceptances1:
+  acceptances4:
     machine: true
     steps:
       - run: echo "acceptance tests 1-5"
@@ -23,15 +23,15 @@ jobs:
     steps:
       - checkout
       - run: echo "unit tests"
-  acceptances2:
-    machine: true
-    steps:
-      - run: echo "acceptance tests 6-10"
   acceptances3:
     machine: true
     steps:
+      - run: echo "acceptance tests 6-10"
+  acceptances2:
+    machine: true
+    steps:
       - run: echo "acceptance tests 10-15"
-  acceptances4:
+  acceptances1:
     machine: true
     steps:
       - run: echo "acceptance tests 20-25"
