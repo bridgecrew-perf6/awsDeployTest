@@ -30,11 +30,11 @@ jobs:
   acceptances4:
     machine: true
     steps:
-      - run: echo "acceptance tests 1-5"
+      - run: echo "acceptance tests 10-15"
   acceptances4:
     machine: true
     steps:
-      - run: echo "acceptance tests 1-5"
+      - run: echo "acceptance tests 20-25"
   deployStaging:
     machine: true
     steps:
